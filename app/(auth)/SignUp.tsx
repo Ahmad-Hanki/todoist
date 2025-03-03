@@ -54,8 +54,7 @@ const SignUp = () => {
             console.log(err);
             return;
           }
-          console.log(res);
-          // Save user data to database
+         
         },
       });
     } catch (error) {

@@ -1,11 +1,12 @@
 import Button from "@/components/shared/Button";
 import Colors from "@/constants/Colors";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 const Landing = () => {
   const router = useRouter();
+
   return (
     <View>
       <Image
