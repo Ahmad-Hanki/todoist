@@ -1,13 +1,16 @@
 import { auth } from "@/config/firebaseConfig";
 import axios from "axios";
-import { Redirect } from "expo-router";
+import { useRouter } from "expo-router";
 import { onAuthStateChanged } from "firebase/auth";
-import { Text, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import { AuthContext } from "@/context/AuthContext";
 import { useContext } from "react";
 
 export default function Index() {
   const { setUser } = useContext(AuthContext);
+  const router = useRouter();
+
+  
   onAuthStateChanged(auth, async (userData) => {
     if (userData && userData?.email) {
       const result = await axios.get(
@@ -17,17 +20,22 @@ export default function Index() {
       const data = await result.data;
       console.log(data);
       setUser(data);
+      router.replace("/(tabs)/Home");
     } else {
-      console.log("User is signed out");
+      console.log("no user");
+      router.replace("/landing");
     }
   });
+
   return (
     <View
       style={{
         flex: 1,
+        alignContent: "center",
+        justifyContent: "center",
       }}
     >
-      <Redirect href={"/landing"} />
+      <ActivityIndicator size="large" />
     </View>
   );
 }
