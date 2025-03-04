@@ -6,6 +6,7 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 const Landing = () => {
   const router = useRouter();
+  
 
   return (
     <View>

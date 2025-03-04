@@ -1,16 +1,23 @@
 import Colors from "@/constants/Colors";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 interface ButtonProps {
   text: string;
   onPress: () => void;
+  loading?: boolean;
 }
 
-const Button = ({ text, onPress }: ButtonProps) => {
+const Button = ({ text, onPress, loading }: ButtonProps) => {
   return (
     <TouchableOpacity
-    onPress={onPress}
+      onPress={onPress}
       style={{
         padding: 15,
         backgroundColor: Colors.PRIMARY,
@@ -18,9 +25,15 @@ const Button = ({ text, onPress }: ButtonProps) => {
         marginTop: 15,
       }}
     >
-      <Text style={{ color: Colors.WHITE, textAlign: "center", fontSize: 20 }}>
-        {text}
-      </Text>
+      {loading ? (
+        <ActivityIndicator  color={Colors.WHITE}/>
+      ) : (
+        <Text
+          style={{ color: Colors.WHITE, textAlign: "center", fontSize: 20 }}
+        >
+          {text}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };

@@ -1,6 +1,6 @@
 import { Client } from "node-postgres";
 
-const client = new Client({
+export const nileClient = new Client({
   user: process.env.EXPO_PUBLIC_NILE_USERNAME,
   password: process.env.EXPO_PUBLIC_NILE_PASSWORD   ,
   host: "us-west-2.db.thenile.dev",
