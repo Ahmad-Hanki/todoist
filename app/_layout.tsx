@@ -11,6 +11,7 @@ export default function RootLayout() {
       >
         <Stack.Screen name="index" />
         <Stack.Screen name="landing" />
+        <Stack.Screen name="add-post/index" />
       </Stack>
     </AuthProvider>
   );

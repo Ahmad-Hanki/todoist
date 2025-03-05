@@ -10,7 +10,6 @@ export default function Index() {
   const { setUser } = useContext(AuthContext);
   const router = useRouter();
 
-  
   onAuthStateChanged(auth, async (userData) => {
     if (userData && userData?.email) {
       const result = await axios.get(

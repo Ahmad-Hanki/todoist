@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-interface UserProps {
+export interface UserProps {
   id?: number;
   name: string;
   email: string;
